@@ -19,42 +19,82 @@
   </head>
 
   <body>
-    <!-- navbar -->
 
-    <nav class="navbar navbar-expand-lg bg-light navbar-light pt-3 pb-3">
-      <div class="container">
-        <a class="navbar-brand" href="#">Youread.com</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Portfolio website</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-          <form class="d-flex" id="searchForm" role="search">
-            <input class="form-control me-2 shadow-none" id="searchInput" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-primary" type="submit">Search</button>
-          </form>
+    <header class="sticky-top ">
+
+      <!-- navbar -->
+
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark pt-1 pb-1">
+        <div class="container-fluid">
+          <a class="navbar-brand text-primary" href="#">read.com</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto ms-md-3 mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">World</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">US Politics</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Business</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Health</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Entertainment</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Lifestyle</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Travel</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sports</a>
+              </li>
+            </ul>
+            
+            <div class="d-flex gap-3">
+              <a href="#" class="text-white text-decoration-none">
+                <i class="fas fa-search"></i>
+              </a>
+              <a href="#" class="text-white text-decoration-none">
+                <i class="far fa-user-circle"></i>
+              </a>
+              <a href="#" class="text-white text-decoration-none">
+                <i class="fas fa-bars"></i>
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      <div class="container-fluid pt-1 pb-1 bg-light">
+
+        <div class="d-flex align-items-center">
+          <div class="headline_block bg-dark text-white pe-3 ps-3 small fw-light pt-1 pb-1">
+            Headlines:
+          </div>
+
+          <marquee class="fw-light" id="headlineNewsEl" scrollamount="4" behavior="scroll" direction="left">
+            
+          </marquee>
+
+        </div>
+
+    </div>
+
+    </header>
 
     <!-- content -->
 
-    <main>
-      <div class="container">
-        <div class="row" id="contentNode">
+    <main class="mt-5">
+      <div class="container-fluid">
+        <div class="row pb-5" id="nodeElement">
 
         </div>
       </div>
@@ -62,6 +102,8 @@
     
     <!-- bootstrap -->
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/51640548ca.js" crossorigin="anonymous"></script>
 
     <!-- js -->
     <script src="assets/js/app.js"></script>
