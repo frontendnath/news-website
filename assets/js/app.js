@@ -219,6 +219,10 @@ function showLifeNews(fetchedNewsApi) {
       <img src=${fetchedNewsApi.articles[0].urlToImage} width="100%" alt="">
 
       <div class="mt-3">
+        <div class="small text-muted mb-2">
+          <i class="far fa-user me-2"></i> Author: ${fetchedNewsApi.articles[0].author}
+        </div>
+
         <h6>${fetchedNewsApi.articles[0].title}</h6>
 
         <p class="mt-3 text-muted small">
@@ -269,6 +273,11 @@ function showTechNews(fetchedNewsApi) {
       <img src=${fetchedNewsApi.articles[0].urlToImage} width="100%" alt="">
 
       <div class="mt-3">
+
+        <div class="small text-muted mb-2">
+          <i class="far fa-user me-2"></i> Author: ${fetchedNewsApi.articles[0].author}
+        </div>
+
         <h6>${fetchedNewsApi.articles[0].title}</h6>
 
         <p class="mt-3 text-muted small">
@@ -319,6 +328,10 @@ function showsportNews(fetchedNewsApi) {
       <img src=${fetchedNewsApi.articles[0].urlToImage} width="100%" alt="">
 
       <div class="mt-3">
+        <div class="small text-muted mb-2">
+          <i class="far fa-user me-2"></i> Author: ${fetchedNewsApi.articles[2].author}
+        </div>
+
         <h6>${fetchedNewsApi.articles[0].title}</h6>
 
         <p class="mt-3 text-muted small">
