@@ -55,7 +55,7 @@ function showHeadlines(apiHeadlineData) {
 
 const nodeElement = document.getElementById('nodeElement');
 
-const firstThreeNewsUrl = `${apiData.baseUrl}?q=tech&apiKey=${apiData.apiKey}`;
+const firstThreeNewsUrl = `${apiData.baseUrl}?q=current&apiKey=${apiData.apiKey}`;
 
 async function getFirstThreeNews(firstThreeNewsData) {
 
@@ -164,7 +164,7 @@ function showFirstThree(apiFirstThreeData) {
           <i class="far fa-user me-2"></i> Author: ${apiFirstThreeData.articles[2].author}
         </div>
 
-        <h6 class="text-dark mt-2 border-bottom pb-3">
+        <h6 class="text-dark mt-2 border-bottom pb-3" style="font-size: .9rem;">
           ${apiFirstThreeData.articles[2].description}
         </h6>
 
@@ -186,5 +186,155 @@ function showFirstThree(apiFirstThreeData) {
   `;
 
   nodeElement.append(firstNews, secondNews, thirdNews);
+
+}
+
+async function getLifeNews(lifeNewsApi) {
+
+  const res = await fetch(lifeNewsApi);
+  const data = await res.json();
+
+  showLifeNews(data);
+
+}
+
+const lifeStyleUrl = `${apiData.baseUrl}?q=lifestyle&apiKey=${apiData.apiKey}`;
+
+getLifeNews(lifeStyleUrl);
+
+function showLifeNews(fetchedNewsApi) {
+
+  const trendingTagsEl = document.getElementById('trendingTagsEl');
+
+  const latestNewsTag = document.createElement('div');
+  latestNewsTag.classList.add('col-md-4');
+
+  latestNewsTag.innerHTML = `
+  
+    <div class="bg-light border d-flex align-items-center p-2">
+      <strong class="fs-5">LifeStyle</strong>
+    </div>
+
+    <div class="mt-2">
+      <img src=${fetchedNewsApi.articles[0].urlToImage} width="100%" alt="">
+
+      <div class="mt-3">
+        <h6>${fetchedNewsApi.articles[0].title}</h6>
+
+        <p class="mt-3 text-muted small">
+          ${fetchedNewsApi.articles[0].content}
+        </p>
+
+        <div class="mt-3">
+          <a href=${fetchedNewsApi.articles[0].url} class="text-primary text-decoration-none d-flex align-items-center">
+            Read more <i class="fas fa-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  `
+
+  trendingTagsEl.append(latestNewsTag);
+
+}
+
+async function getTechNews(techNewsApi) {
+
+  const res = await fetch(techNewsApi);
+  const data = await res.json();
+
+  showTechNews(data);
+
+}
+
+const techNewsUrl = `${apiData.baseUrl}?q=tech&apiKey=${apiData.apiKey}`;
+
+getTechNews(techNewsUrl);
+
+function showTechNews(fetchedNewsApi) {
+
+  const trendingTagsEl = document.getElementById('trendingTagsEl');
+
+  const latestNewsTag = document.createElement('div');
+  latestNewsTag.classList.add('col-md-4');
+
+  latestNewsTag.innerHTML = `
+  
+    <div class="bg-light border d-flex align-items-center p-2">
+      <strong class="fs-5">Tech</strong>
+    </div>
+
+    <div class="mt-2">
+      <img src=${fetchedNewsApi.articles[0].urlToImage} width="100%" alt="">
+
+      <div class="mt-3">
+        <h6>${fetchedNewsApi.articles[0].title}</h6>
+
+        <p class="mt-3 text-muted small">
+          ${fetchedNewsApi.articles[0].content}
+        </p>
+
+        <div class="mt-3">
+          <a href=${fetchedNewsApi.articles[0].url} class="text-primary text-decoration-none d-flex align-items-center">
+            Read more <i class="fas fa-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  `
+
+  trendingTagsEl.append(latestNewsTag);
+
+}
+
+async function getsportNews(techNewsApi) {
+
+  const res = await fetch(techNewsApi);
+  const data = await res.json();
+
+  showsportNews(data);
+
+}
+
+const sportNewsUrl = `${apiData.baseUrl}?q=soccer&apiKey=${apiData.apiKey}`;
+
+getsportNews(sportNewsUrl);
+
+function showsportNews(fetchedNewsApi) {
+
+  const trendingTagsEl = document.getElementById('trendingTagsEl');
+
+  const latestNewsTag = document.createElement('div');
+  latestNewsTag.classList.add('col-md-4');
+
+  latestNewsTag.innerHTML = `
+  
+    <div class="bg-light border d-flex align-items-center p-2">
+      <strong class="fs-5">Sports</strong>
+    </div>
+
+    <div class="mt-2">
+      <img src=${fetchedNewsApi.articles[0].urlToImage} width="100%" alt="">
+
+      <div class="mt-3">
+        <h6>${fetchedNewsApi.articles[0].title}</h6>
+
+        <p class="mt-3 text-muted small">
+          ${fetchedNewsApi.articles[0].content}
+        </p>
+
+        <div class="mt-3">
+          <a href=${fetchedNewsApi.articles[0].url} class="text-primary text-decoration-none d-flex align-items-center">
+            Read more <i class="fas fa-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  `
+
+  trendingTagsEl.append(latestNewsTag);
 
 }
