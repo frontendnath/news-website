@@ -34,4 +34,7 @@
   font-weight: 300;
   letter-spacing: 0.5px;
   color: #FFFFFF !important;
+}
+* body main .row .col-md-4 {
+  margin-top: 20px;
 }/*# sourceMappingURL=style.css.map */

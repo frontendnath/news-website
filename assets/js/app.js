@@ -55,7 +55,7 @@ function showHeadlines(apiHeadlineData) {
 
 const nodeElement = document.getElementById('nodeElement');
 
-const firstThreeNewsUrl = `${apiData.baseUrl}?q=current&apiKey=${apiData.apiKey}`;
+const firstThreeNewsUrl = `${apiData.baseUrl}?q=us&apiKey=${apiData.apiKey}`;
 
 async function getFirstThreeNews(firstThreeNewsData) {
 
@@ -70,40 +70,44 @@ getFirstThreeNews(firstThreeNewsUrl);
 
 function showFirstThree(apiFirstThreeData) {
 
-  console.log(apiFirstThreeData)
-
   const firstNews = document.createElement('div');
   firstNews.classList.add('col-md-5');
+
+  const randomAPIData = Math.floor(Math.random() * apiFirstThreeData.articles.length);
+
+  const randomAPIData2 = Math.floor(Math.random() * apiFirstThreeData.articles.length);
+
+  const randomAPIData3 = Math.floor(Math.random() * apiFirstThreeData.articles.length);
 
   firstNews.innerHTML = `
   
     <div>
 
       <h3 class="text-dark fw-bold">
-        ${apiFirstThreeData.articles[0].title}
+        ${apiFirstThreeData.articles[randomAPIData].title}
       </h3>
 
       <div class="img_box">
-        <img src=${apiFirstThreeData.articles[0].urlToImage} width="100%" />
+        <img src=${apiFirstThreeData.articles[randomAPIData].urlToImage} width="100%" />
       </div>
 
       <div class="mt-3">
         <div class="small text-muted">
-          <i class="far fa-user me-2"></i> Author: ${apiFirstThreeData.articles[0].author}
+          <i class="far fa-user me-2"></i> Author: ${apiFirstThreeData.articles[randomAPIData].author}
         </div>
 
         <h6 class="text-dark mt-2 border-bottom pb-3">
-          ${apiFirstThreeData.articles[0].description}
+          ${apiFirstThreeData.articles[randomAPIData].description}
         </h6>
 
         <div class="mt-2">
           <p class="text-muted small">
-            ${apiFirstThreeData.articles[0].content}
+            ${apiFirstThreeData.articles[randomAPIData].content}
           </p>
         </div>
 
         <div class="mt-3">
-          <a href=${apiFirstThreeData.articles[0].url} target="_blank" class="text-primary text-decoration-none d-flex align-items-center">
+          <a href=${apiFirstThreeData.articles[randomAPIData].url} target="_blank" class="text-primary text-decoration-none d-flex align-items-center">
             Read more <i class="fas fa-arrow-right text-decoration-none ms-2"></i>
           </a>
         </div>
@@ -120,26 +124,26 @@ function showFirstThree(apiFirstThreeData) {
   
     <div>
       <div class="img_box">
-        <img src=${apiFirstThreeData.articles[1].urlToImage} width="100%" />
+        <img src=${apiFirstThreeData.articles[randomAPIData2].urlToImage} width="100%" />
       </div>
 
       <div class="mt-3">
         <div class="small text-muted">
-          <i class="far fa-user me-2"></i> Author: ${apiFirstThreeData.articles[1].author}
+          <i class="far fa-user me-2"></i> Author: ${apiFirstThreeData.articles[randomAPIData2].author}
         </div>
 
         <h6 class="text-dark mt-2 border-bottom pb-3">
-          ${apiFirstThreeData.articles[1].description}
+          ${apiFirstThreeData.articles[randomAPIData2].description}
         </h6>
 
         <div class="mt-2">
           <p class="text-muted small">
-            ${apiFirstThreeData.articles[1].content}
+            ${apiFirstThreeData.articles[randomAPIData2].content}
           </p>
         </div>
 
         <div class="mt-3">
-          <a href=${apiFirstThreeData.articles[1].url} target="_blank" class="text-primary text-decoration-none d-flex align-items-center">
+          <a href=${apiFirstThreeData.articles[randomAPIData2].url} target="_blank" class="text-primary text-decoration-none d-flex align-items-center">
             Read more <i class="fas fa-arrow-right text-decoration-none ms-2"></i>
           </a>
         </div>
@@ -156,26 +160,26 @@ function showFirstThree(apiFirstThreeData) {
   
     <div>
       <div class="img_box">
-        <img src=${apiFirstThreeData.articles[2].urlToImage} width="100%" />
+        <img src=${apiFirstThreeData.articles[randomAPIData3].urlToImage} width="100%" />
       </div>
 
       <div class="mt-3">
         <div class="small text-muted">
-          <i class="far fa-user me-2"></i> Author: ${apiFirstThreeData.articles[2].author}
+          <i class="far fa-user me-2"></i> Author: ${apiFirstThreeData.articles[randomAPIData3].author}
         </div>
 
         <h6 class="text-dark mt-2 border-bottom pb-3" style="font-size: .9rem;">
-          ${apiFirstThreeData.articles[2].description}
+          ${apiFirstThreeData.articles[randomAPIData3].description}
         </h6>
 
         <div class="mt-2">
           <p class="text-muted small">
-            ${apiFirstThreeData.articles[2].content}
+            ${apiFirstThreeData.articles[randomAPIData3].content}
           </p>
         </div>
 
         <div class="mt-3">
-          <a href=${apiFirstThreeData.articles[2].url} target="_blank" class="text-primary text-decoration-none d-flex align-items-center">
+          <a href=${apiFirstThreeData.articles[randomAPIData3].url} target="_blank" class="text-primary text-decoration-none d-flex align-items-center">
             Read more <i class="fas fa-arrow-right text-decoration-none ms-2"></i>
           </a>
         </div>
@@ -209,6 +213,8 @@ function showLifeNews(fetchedNewsApi) {
   const latestNewsTag = document.createElement('div');
   latestNewsTag.classList.add('col-md-4');
 
+  const randomAPIData = Math.floor(Math.random() * fetchedNewsApi.articles.length);
+
   latestNewsTag.innerHTML = `
   
     <div class="bg-light border d-flex align-items-center p-2">
@@ -216,21 +222,21 @@ function showLifeNews(fetchedNewsApi) {
     </div>
 
     <div class="mt-2">
-      <img src=${fetchedNewsApi.articles[0].urlToImage} width="100%" alt="">
+      <img src=${fetchedNewsApi.articles[randomAPIData].urlToImage} width="100%" alt="">
 
       <div class="mt-3">
         <div class="small text-muted mb-2">
-          <i class="far fa-user me-2"></i> Author: ${fetchedNewsApi.articles[0].author}
+          <i class="far fa-user me-2"></i> Author: ${fetchedNewsApi.articles[randomAPIData].author}
         </div>
 
-        <h6>${fetchedNewsApi.articles[0].title}</h6>
+        <h6>${fetchedNewsApi.articles[randomAPIData].title}</h6>
 
         <p class="mt-3 text-muted small">
-          ${fetchedNewsApi.articles[0].content}
+          ${fetchedNewsApi.articles[randomAPIData].content}
         </p>
 
         <div class="mt-3">
-          <a href=${fetchedNewsApi.articles[0].url} class="text-primary text-decoration-none d-flex align-items-center">
+          <a href=${fetchedNewsApi.articles[randomAPIData].url} class="text-primary text-decoration-none d-flex align-items-center">
             Read more <i class="fas fa-arrow-right ms-2"></i>
           </a>
         </div>
@@ -263,6 +269,8 @@ function showTechNews(fetchedNewsApi) {
   const latestNewsTag = document.createElement('div');
   latestNewsTag.classList.add('col-md-4');
 
+  const randomAPIData = Math.floor(Math.random() * fetchedNewsApi.articles.length);
+
   latestNewsTag.innerHTML = `
   
     <div class="bg-light border d-flex align-items-center p-2">
@@ -270,22 +278,22 @@ function showTechNews(fetchedNewsApi) {
     </div>
 
     <div class="mt-2">
-      <img src=${fetchedNewsApi.articles[0].urlToImage} width="100%" alt="">
+      <img src=${fetchedNewsApi.articles[randomAPIData].urlToImage} width="100%" alt="">
 
       <div class="mt-3">
 
         <div class="small text-muted mb-2">
-          <i class="far fa-user me-2"></i> Author: ${fetchedNewsApi.articles[0].author}
+          <i class="far fa-user me-2"></i> Author: ${fetchedNewsApi.articles[randomAPIData].author}
         </div>
 
-        <h6>${fetchedNewsApi.articles[0].title}</h6>
+        <h6>${fetchedNewsApi.articles[randomAPIData].title}</h6>
 
         <p class="mt-3 text-muted small">
-          ${fetchedNewsApi.articles[0].content}
+          ${fetchedNewsApi.articles[randomAPIData].content}
         </p>
 
         <div class="mt-3">
-          <a href=${fetchedNewsApi.articles[0].url} class="text-primary text-decoration-none d-flex align-items-center">
+          <a href=${fetchedNewsApi.articles[randomAPIData].url} class="text-primary text-decoration-none d-flex align-items-center">
             Read more <i class="fas fa-arrow-right ms-2"></i>
           </a>
         </div>
@@ -318,6 +326,8 @@ function showsportNews(fetchedNewsApi) {
   const latestNewsTag = document.createElement('div');
   latestNewsTag.classList.add('col-md-4');
 
+  const randomAPIData = Math.floor(Math.random() * fetchedNewsApi.articles.length);
+
   latestNewsTag.innerHTML = `
   
     <div class="bg-light border d-flex align-items-center p-2">
@@ -325,21 +335,21 @@ function showsportNews(fetchedNewsApi) {
     </div>
 
     <div class="mt-2">
-      <img src=${fetchedNewsApi.articles[0].urlToImage} width="100%" alt="">
+      <img src=${fetchedNewsApi.articles[randomAPIData].urlToImage} width="100%" alt="">
 
       <div class="mt-3">
         <div class="small text-muted mb-2">
-          <i class="far fa-user me-2"></i> Author: ${fetchedNewsApi.articles[2].author}
+          <i class="far fa-user me-2"></i> Author: ${fetchedNewsApi.articles[randomAPIData].author}
         </div>
 
-        <h6>${fetchedNewsApi.articles[0].title}</h6>
+        <h6>${fetchedNewsApi.articles[randomAPIData].title}</h6>
 
         <p class="mt-3 text-muted small">
-          ${fetchedNewsApi.articles[0].content}
+          ${fetchedNewsApi.articles[randomAPIData].content}
         </p>
 
         <div class="mt-3">
-          <a href=${fetchedNewsApi.articles[0].url} class="text-primary text-decoration-none d-flex align-items-center">
+          <a href=${fetchedNewsApi.articles[randomAPIData].url} class="text-primary text-decoration-none d-flex align-items-center">
             Read more <i class="fas fa-arrow-right ms-2"></i>
           </a>
         </div>
@@ -349,5 +359,175 @@ function showsportNews(fetchedNewsApi) {
   `
 
   trendingTagsEl.append(latestNewsTag);
+
+}
+
+async function getBusinessNews(businessNewsApi) {
+
+  const res = await fetch(businessNewsApi);
+  const data = await res.json();
+
+  showBusinessNews(data);
+
+}
+
+const businessNewsURL = `${apiData.baseUrl}?q=business&apiKey=${apiData.apiKey}`;
+
+getBusinessNews(businessNewsURL);
+
+function showBusinessNews(fethedBusinessNewsApiData) {
+
+  const businessAndTravelNewsEl = document.getElementById('businessAndTravelNewsEl');
+
+  const subElement = document.createElement('div');
+  subElement.classList.add('col-md-4', 'mt-3');
+
+  const randomAPIData = Math.floor(Math.random() * fethedBusinessNewsApiData.articles.length);
+
+  subElement.innerHTML = `
+  
+    <div class="bg-light border d-flex align-items-center p-2">
+      <strong class="fs-5">Business</strong>
+    </div>
+
+    <div class="mt-2">
+      <img src=${fethedBusinessNewsApiData.articles[randomAPIData].urlToImage} width="100%" alt="">
+
+      <div class="mt-3">
+        <div class="small text-muted mb-2">
+          <i class="far fa-user me-2"></i> Author: ${fethedBusinessNewsApiData.articles[randomAPIData].author}
+        </div>
+
+        <h6>${fethedBusinessNewsApiData.articles[randomAPIData].title}</h6>
+
+        <p class="mt-3 text-muted small">
+          ${fethedBusinessNewsApiData.articles[randomAPIData].content}
+        </p>
+
+        <div class="mt-3">
+          <a href=${fethedBusinessNewsApiData.articles[randomAPIData].url} class="text-primary text-decoration-none d-flex align-items-center">
+            Read more <i class="fas fa-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  `;
+
+  businessAndTravelNewsEl.append(subElement);
+
+}
+
+
+async function getTravelNews(travelNewsApi) {
+
+  const res = await fetch(travelNewsApi);
+  const data = await res.json();
+
+  showTravelNews(data);
+
+}
+
+const travelNewsURL = `${apiData.baseUrl}?q=travel&apiKey=${apiData.apiKey}`;
+
+getTravelNews(travelNewsURL);
+
+function showTravelNews(fethedBusinessNewsApiData) {
+
+  const businessAndTravelNewsEl = document.getElementById('businessAndTravelNewsEl');
+
+  const subElement = document.createElement('div');
+  subElement.classList.add('col-md-4', 'mt-3');
+
+  const randomAPIData = Math.floor(Math.random() * fethedBusinessNewsApiData.articles.length);
+
+  subElement.innerHTML = `
+  
+    <div class="bg-light border d-flex align-items-center p-2">
+      <strong class="fs-5">Travel</strong>
+    </div>
+
+    <div class="mt-2">
+      <img src=${fethedBusinessNewsApiData.articles[randomAPIData].urlToImage} width="100%" alt="">
+
+      <div class="mt-3">
+        <div class="small text-muted mb-2">
+          <i class="far fa-user me-2"></i> Author: ${fethedBusinessNewsApiData.articles[randomAPIData].author}
+        </div>
+
+        <h6>${fethedBusinessNewsApiData.articles[randomAPIData].title}</h6>
+
+        <p class="mt-3 text-muted small">
+          ${fethedBusinessNewsApiData.articles[randomAPIData].content}
+        </p>
+
+        <div class="mt-3">
+          <a href=${fethedBusinessNewsApiData.articles[randomAPIData].url} class="text-primary text-decoration-none d-flex align-items-center">
+            Read more <i class="fas fa-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  `;
+
+  businessAndTravelNewsEl.append(subElement);
+
+}
+
+
+async function getentNews(entNewsApi) {
+
+  const res = await fetch(entNewsApi);
+  const data = await res.json();
+
+  showEntNews(data);
+
+}
+
+const entertainmentNewsURL = `${apiData.baseUrl}?q=entertainment&apiKey=${apiData.apiKey}`;
+
+getentNews(entertainmentNewsURL);
+
+function showEntNews(fethedBusinessNewsApiData) {
+
+  const businessAndTravelNewsEl = document.getElementById('businessAndTravelNewsEl');
+
+  const subElement = document.createElement('div');
+  subElement.classList.add('col-md-4', 'mt-3');
+
+  const randomAPIData = Math.floor(Math.random() * fethedBusinessNewsApiData.articles.length);
+
+  subElement.innerHTML = `
+  
+    <div class="bg-light border d-flex align-items-center p-2">
+      <strong class="fs-5">Entertainment</strong>
+    </div>
+
+    <div class="mt-2">
+      <img src=${fethedBusinessNewsApiData.articles[randomAPIData].urlToImage} width="100%" alt="">
+
+      <div class="mt-3">
+        <div class="small text-muted mb-2">
+          <i class="far fa-user me-2"></i> Author: ${fethedBusinessNewsApiData.articles[randomAPIData].author}
+        </div>
+
+        <h6>${fethedBusinessNewsApiData.articles[randomAPIData].title}</h6>
+
+        <p class="mt-3 text-muted small">
+          ${fethedBusinessNewsApiData.articles[randomAPIData].content}
+        </p>
+
+        <div class="mt-3">
+          <a href=${fethedBusinessNewsApiData.articles[randomAPIData].url} class="text-primary text-decoration-none d-flex align-items-center">
+            Read more <i class="fas fa-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  `;
+
+  businessAndTravelNewsEl.appendChild(subElement);
 
 }
