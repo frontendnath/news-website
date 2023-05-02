@@ -8,6 +8,32 @@ const apiData = {
 
 }
 
+// scroll to top function
+
+const scrollToTop = document.getElementById('scrollToTop');
+
+window.onscroll = () => {
+
+  if(window.scrollY >= 100) {
+
+    scrollToTop.classList.add('show');
+    console.log('test completed');
+
+  } else {
+
+    scrollToTop.classList.remove('show');
+    console.log('test removed');
+
+  }
+
+}
+
+scrollToTop.addEventListener('click', () => {
+
+  document.documentElement.scrollTop = 0;
+
+});
+
 
 // getting headline news
 

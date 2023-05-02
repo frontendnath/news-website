@@ -10,6 +10,24 @@
     overflow-x: hidden;
     font-family: 'Rubik', sans-serif !important;
 
+    .scroll-to-top {
+
+      position: fixed;
+      bottom: 0%;
+      right: 0%;
+      margin: 20px;
+      transition: .4s ease-in;
+      transform: translateY(100px);
+      z-index: 1;
+
+      &.show {
+
+        transform: translateY(0);
+
+      }
+
+    }
+
     // navbar
 
     nav {

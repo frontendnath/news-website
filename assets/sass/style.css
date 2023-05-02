@@ -8,6 +8,18 @@
   overflow-x: hidden;
   font-family: "Rubik", sans-serif !important;
 }
+* body .scroll-to-top {
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+  margin: 20px;
+  transition: 0.4s ease-in;
+  transform: translateY(100px);
+  z-index: 1;
+}
+* body .scroll-to-top.show {
+  transform: translateY(0);
+}
 * body nav {
   overflow: hidden;
 }
