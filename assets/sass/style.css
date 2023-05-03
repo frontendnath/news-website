@@ -84,4 +84,22 @@
   border-radius: 5px;
   right: 0%;
   margin: 10px;
+}
+* body footer .brand {
+  font-family: "Darumadrop One", cursive !important;
+  font-size: 1.4rem;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 600px) {
+  * body footer .row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  * body footer .row .col-md-3 {
+    width: 100% !important;
+  }
 }/*# sourceMappingURL=style.css.map */

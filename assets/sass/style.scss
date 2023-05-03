@@ -144,5 +144,39 @@
       }
 
     }
+
+    footer {
+
+      .brand {
+
+        font-family: 'Darumadrop One', cursive !important;
+        font-size: 1.4rem;
+        padding-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // color: #14449c !important;
+
+      }
+
+      @media screen and (max-width: 600px) {
+        
+        .row {
+
+          display: grid !important;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+
+          .col-md-3 {
+            
+            width: 100% !important;
+
+          }
+
+        }
+
+      }
+      
+    }
   }
 }

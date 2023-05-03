@@ -8,6 +8,7 @@ const apiData = {
   worlNews: 'https://api.nytimes.com/svc/topstories/v2/world.json',
   headlineNews: 'https://api.nytimes.com/svc/news/v3/content/all/all.json',
   mostPopular: 'https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json',
+  articlesEndpoint: 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election'
 
 }
 
@@ -228,7 +229,6 @@ getPopularNews(mostPopularNewsUrl);
 function showPopularNews(newsData) {
 
   const extractNewsData = [...newsData.results.books];
-  console.log(extractNewsData)
 
   extractNewsData.forEach((data) => {
 
@@ -274,6 +274,83 @@ function showPopularNews(newsData) {
     })
 
     topNews.appendChild(topNewsSubEl);
+
+  })
+
+}
+
+// get articles
+
+const articlesURL = `${apiData.articlesEndpoint}&api-key=${apiData.apiKey}`;
+
+async function getArticles(fetchArticlesAPI) {
+
+  const res = await fetch(fetchArticlesAPI);
+  const data = await res.json();
+
+  showArticles(data);
+
+}
+
+getArticles(articlesURL);
+
+function showArticles(articlesAPIData) {
+
+  const extractedContent = [...articlesAPIData.response.docs];
+
+  extractedContent.forEach((data) => {
+
+    const mainExtract = [data];
+
+    const articlesElement = document.getElementById('articlesElement');
+
+    const subElement = document.createElement('div');
+
+    subElement.classList.add('col-md-3', 'mt-3');
+
+    console.log(data);
+
+    mainExtract.forEach((item) => {
+
+    subElement.innerHTML = `
+  
+      <div>
+        <div>
+          <div class="img_box mb-2">
+            <div class="tag bg-white shadow text-dark fw-light">
+              ${item.news_desk}. 
+            </div>
+  
+            <img src=https://static01.nyt.com/${item.multimedia[0].url} width="100%" alt="${item.headline.main}" />
+          </div>
+  
+          <div class="mt-3">
+            <h6 class="title text-dark">
+              ${item.headline.main}
+            </h6>
+  
+            <div class="text-muted small">
+              Source: ${item.byline.original}
+            </div>
+  
+            <p class="text-muted small">
+              ${item.abstract}
+            </p>
+  
+            <div class="mt-3">
+              <a href=${item.web_url} class="text-primary text-decoration-underline" target="_blank">
+                Read more
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    `;
+
+    })
+
+    articlesElement.appendChild(subElement);
 
   })
 
