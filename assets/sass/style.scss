@@ -28,6 +28,12 @@
 
     }
 
+    h1, h2, h3, h4, h5, h6 {
+
+      line-height: normal;
+
+    }
+
     // navbar
 
     nav {
@@ -65,6 +71,43 @@
               font-weight: 300;
               letter-spacing: .5px;
               color: #FFFFFF !important;
+              position: relative;
+
+              &::after {
+
+                position: absolute;
+                content: '';
+                bottom: 0%;
+                left: 0%;
+                transition: .3s ease-in;
+                height: 2px;
+                width: 0%;
+                background-color: #0D6EFD;
+
+              }
+
+              &.active {
+                color: #0D6EFD !important;
+
+                &::after {
+
+                  width: 100%;
+
+                }
+
+              }
+
+              &:hover {
+
+                color: #0D6EFD !important;
+
+                &::after {
+
+                  width: 100%;
+
+                }
+
+              }
 
             }
 
@@ -80,9 +123,21 @@
 
       .row {
 
-        .col-md-4 {
+        .img_box {
 
-          margin-top: 20px;
+          position: relative;
+
+
+          .tag {
+
+            position: absolute;
+            width: fit-content;
+            padding: 2px 5px;
+            border-radius: 5px;
+            right: 0%;
+            margin: 10px;
+
+          }
 
         }
 

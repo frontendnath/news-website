@@ -20,6 +20,9 @@
 * body .scroll-to-top.show {
   transform: translateY(0);
 }
+* body h1, * body h2, * body h3, * body h4, * body h5, * body h6 {
+  line-height: normal;
+}
 * body nav {
   overflow: hidden;
 }
@@ -46,7 +49,39 @@
   font-weight: 300;
   letter-spacing: 0.5px;
   color: #FFFFFF !important;
+  position: relative;
 }
-* body main .row .col-md-4 {
-  margin-top: 20px;
+* body nav .container-fluid .collapse .navbar-nav .nav-link::after {
+  position: absolute;
+  content: "";
+  bottom: 0%;
+  left: 0%;
+  transition: 0.3s ease-in;
+  height: 2px;
+  width: 0%;
+  background-color: #0D6EFD;
+}
+* body nav .container-fluid .collapse .navbar-nav .nav-link.active {
+  color: #0D6EFD !important;
+}
+* body nav .container-fluid .collapse .navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+* body nav .container-fluid .collapse .navbar-nav .nav-link:hover {
+  color: #0D6EFD !important;
+}
+* body nav .container-fluid .collapse .navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+* body main .row .img_box {
+  position: relative;
+}
+* body main .row .img_box .tag {
+  position: absolute;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 2px 5px;
+  border-radius: 5px;
+  right: 0%;
+  margin: 10px;
 }/*# sourceMappingURL=style.css.map */
