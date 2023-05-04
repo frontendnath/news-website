@@ -211,6 +211,83 @@ function showTopWorlNews(worldNewsData) {
 
 }
 
+
+// get articles
+
+const articlesURL = `${apiData.articlesEndpoint}&api-key=${apiData.apiKey}`;
+
+async function getArticles(fetchArticlesAPI) {
+
+  const res = await fetch(fetchArticlesAPI);
+  const data = await res.json();
+
+  showArticles(data);
+
+}
+
+getArticles(articlesURL);
+
+function showArticles(articlesAPIData) {
+
+  const extractedContent = [...articlesAPIData.response.docs];
+
+  extractedContent.forEach((data) => {
+
+    const mainExtract = [data];
+
+    const articlesElement = document.getElementById('articlesElement');
+
+    const subElement = document.createElement('div');
+
+    subElement.classList.add('col-md-3', 'mt-3');
+
+    mainExtract.forEach((item) => {
+
+    subElement.innerHTML = `
+  
+      <div>
+        <div>
+          <div class="img_box mb-2">
+            <div class="tag bg-white shadow text-dark fw-light">
+              ${item.news_desk}. 
+            </div>
+  
+            <img src=https://static01.nyt.com/${item.multimedia[0].url} width="100%" alt="${item.headline.main}" />
+          </div>
+  
+          <div class="mt-3">
+            <h6 class="title text-dark">
+              ${item.headline.main}
+            </h6>
+  
+            <div class="text-muted small">
+              Source: ${item.byline.original}
+            </div>
+  
+            <p class="text-muted small mt-2">
+              ${item.abstract}
+            </p>
+  
+            <div class="mt-3">
+              <a href=${item.web_url} class="text-primary text-decoration-underline" target="_blank">
+                Read more
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    `;
+
+    })
+
+    articlesElement.appendChild(subElement);
+
+  })
+
+}
+
+
 // get top news
 
 const mostPopularNewsUrl = `${apiData.mostPopular}?api-key=${apiData.apiKey}`;
@@ -279,79 +356,26 @@ function showPopularNews(newsData) {
 
 }
 
-// get articles
+// show scrollToTopBtn
 
-const articlesURL = `${apiData.articlesEndpoint}&api-key=${apiData.apiKey}`;
+const scrollToTop = document.getElementById('scrollToTop');
 
-async function getArticles(fetchArticlesAPI) {
+window.onscroll = () => {
 
-  const res = await fetch(fetchArticlesAPI);
-  const data = await res.json();
+  if(window.scrollY >= 60 ) {
 
-  showArticles(data);
+    scrollToTop.classList.add('show');
+
+  } else {
+
+    scrollToTop.classList.remove('show');
+
+  }
 
 }
 
-getArticles(articlesURL);
+scrollToTop.onclick = () => {
 
-function showArticles(articlesAPIData) {
-
-  const extractedContent = [...articlesAPIData.response.docs];
-
-  extractedContent.forEach((data) => {
-
-    const mainExtract = [data];
-
-    const articlesElement = document.getElementById('articlesElement');
-
-    const subElement = document.createElement('div');
-
-    subElement.classList.add('col-md-3', 'mt-3');
-
-    console.log(data);
-
-    mainExtract.forEach((item) => {
-
-    subElement.innerHTML = `
-  
-      <div>
-        <div>
-          <div class="img_box mb-2">
-            <div class="tag bg-white shadow text-dark fw-light">
-              ${item.news_desk}. 
-            </div>
-  
-            <img src=https://static01.nyt.com/${item.multimedia[0].url} width="100%" alt="${item.headline.main}" />
-          </div>
-  
-          <div class="mt-3">
-            <h6 class="title text-dark">
-              ${item.headline.main}
-            </h6>
-  
-            <div class="text-muted small">
-              Source: ${item.byline.original}
-            </div>
-  
-            <p class="text-muted small">
-              ${item.abstract}
-            </p>
-  
-            <div class="mt-3">
-              <a href=${item.web_url} class="text-primary text-decoration-underline" target="_blank">
-                Read more
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-    `;
-
-    })
-
-    articlesElement.appendChild(subElement);
-
-  })
+  document.documentElement.scrollTop = 0;
 
 }
