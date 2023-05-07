@@ -7,8 +7,7 @@ const apiData = {
   apiKey: 'xackVAOA4jtfwNEwdsEOBPex22JSKesB',
   worlNews: 'https://api.nytimes.com/svc/topstories/v2/world.json',
   headlineNews: 'https://api.nytimes.com/svc/news/v3/content/all/all.json',
-  mostPopular: 'https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json',
-  articlesEndpoint: 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election'
+  mostPopular: 'https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json'
 
 }
 
@@ -71,219 +70,61 @@ topWorlNews(wordlNewsURL);
 
 function showTopWorlNews(worldNewsData) {
 
-  const topStories = document.getElementById('topStories');
+  const extractNews = [...worldNewsData.results]
 
-  const randomArrayDataFromAPI = Math.floor(Math.random() * worldNewsData.results.length);
-  const randomArrayDataFromAPI2 = Math.floor(Math.random() * worldNewsData.results.length);
-  const randomArrayDataFromAPI3 = Math.floor(Math.random() * worldNewsData.results.length);
+  extractNews.shift();
 
-  const topStoriesChildElement = document.createElement('div');
-  const topStoriesChildElement2 = document.createElement('div');
-  const topStoriesChildElement3 = document.createElement('div');
+  extractNews.forEach((data) => {
 
-  topStoriesChildElement.classList.add('col-md-5', 'mt-3');
-  topStoriesChildElement2.classList.add('col-md-4', 'mt-3');
-  topStoriesChildElement3.classList.add('col-md-3', 'mt-3');
+    const mainExtractForNodeEl = [data];
 
-  topStoriesChildElement.innerHTML = `
-  
-    <div>
-      <div>
-        <h3 class="title text-dark">
-          ${worldNewsData.results[randomArrayDataFromAPI].title}
-        </h3>
-      </div>
-
-      <div class="mt-2">
-        <div class="img_box">
-          <div class="tag bg-white shadow text-dark fw-light">
-            ${worldNewsData.results[randomArrayDataFromAPI].section}. ${worldNewsData.results[randomArrayDataFromAPI].subsection} 
-          </div>
-
-          <img src=${worldNewsData.results[randomArrayDataFromAPI].multimedia[0].url} width="100%" alt="${worldNewsData.results[randomArrayDataFromAPI].multimedia[0].caption}" />
-
-          <div class="text-muted small">
-            Image source: ${worldNewsData.results[randomArrayDataFromAPI].multimedia[0].copyright}
-          </div>
-        </div>
-
-        <div class="mt-3">
-          <div class="text-muted small">
-            Source: ${worldNewsData.results[randomArrayDataFromAPI].byline}
-          </div>
-
-          <h6 class="text-dark">
-            ${worldNewsData.results[randomArrayDataFromAPI].abstract}
-          </h6>
-
-          <div class="mt-3">
-            <a href=${worldNewsData.results[randomArrayDataFromAPI].url} class="text-primary text-decoration-underline" target="_blank">
-              Read more
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  `;
-
-  topStoriesChildElement2.innerHTML = `
-  
-    <div>
-      <div>
-        <div class="img_box mb-2">
-          <div class="tag bg-white shadow text-dark fw-light">
-            ${worldNewsData.results[randomArrayDataFromAPI2].section}. ${worldNewsData.results[randomArrayDataFromAPI2].subsection} 
-          </div>
-
-          <img src=${worldNewsData.results[randomArrayDataFromAPI2].multimedia[0].url} width="100%" alt="${worldNewsData.results[randomArrayDataFromAPI2].multimedia[0].caption}" />
-
-          <div class="text-muted small">
-            Image source: ${worldNewsData.results[randomArrayDataFromAPI2].multimedia[0].copyright}
-          </div>
-        </div>
-
-        <div class="mt-3">
-          <h5 class="title text-dark">
-            ${worldNewsData.results[randomArrayDataFromAPI2].title}
-          </h5>
-
-          <div class="text-muted small">
-            Source: ${worldNewsData.results[randomArrayDataFromAPI2].byline}
-          </div>
-
-          <p class="text-muted small">
-            ${worldNewsData.results[randomArrayDataFromAPI2].abstract}
-          </p>
-
-          <div class="mt-3">
-            <a href=${worldNewsData.results[randomArrayDataFromAPI2].url} class="text-primary text-decoration-underline" target="_blank">
-              Read more
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  `;
-
-  topStoriesChildElement3.innerHTML = `
-    
-    <div>
-      <div>
-        <div class="img_box mb-2">
-          <div class="tag bg-white shadow text-dark fw-light">
-            ${worldNewsData.results[randomArrayDataFromAPI3].section}. ${worldNewsData.results[randomArrayDataFromAPI3].subsection} 
-          </div>
-
-          <img src=${worldNewsData.results[randomArrayDataFromAPI3].multimedia[0].url} width="100%" alt="${worldNewsData.results[randomArrayDataFromAPI3].multimedia[0].caption}" />
-
-          <div class="text-muted small">
-            Image source: ${worldNewsData.results[randomArrayDataFromAPI3].multimedia[0].copyright}
-          </div>
-        </div>
-
-        <div class="mt-3">
-          <h5 class="title text-dark">
-            ${worldNewsData.results[randomArrayDataFromAPI3].title}
-          </h5>
-
-          <div class="text-muted small">
-            Source: ${worldNewsData.results[randomArrayDataFromAPI3].byline}
-          </div>
-
-          <p class="text-muted small">
-            ${worldNewsData.results[randomArrayDataFromAPI3].abstract}
-          </p>
-
-          <div class="mt-3">
-            <a href=${worldNewsData.results[randomArrayDataFromAPI3].url} class="text-primary text-decoration-underline" target="_blank">
-              Read more
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  `;
-
-  topStories.append(topStoriesChildElement, topStoriesChildElement2, topStoriesChildElement3);
-
-}
-
-
-// get articles
-
-const articlesURL = `${apiData.articlesEndpoint}&api-key=${apiData.apiKey}`;
-
-async function getArticles(fetchArticlesAPI) {
-
-  const res = await fetch(fetchArticlesAPI);
-  const data = await res.json();
-
-  showArticles(data);
-
-}
-
-getArticles(articlesURL);
-
-function showArticles(articlesAPIData) {
-
-  const extractedContent = [...articlesAPIData.response.docs];
-
-  extractedContent.forEach((data) => {
-
-    const mainExtract = [data];
-
-    const articlesElement = document.getElementById('articlesElement');
+    const currentNewsEl = document.getElementById('currentNews');
 
     const subElement = document.createElement('div');
 
-    subElement.classList.add('col-md-3', 'mt-3');
+    subElement.classList.add('col-md-4', 'mt-3');
 
-    mainExtract.forEach((item) => {
+    mainExtractForNodeEl.forEach((item) => {
 
-    subElement.innerHTML = `
-  
-      <div>
+      console.log(item)
+
+      subElement.innerHTML = `
+      
         <div>
-          <div class="img_box mb-2">
-            <div class="tag bg-white shadow text-dark fw-light">
-              ${item.news_desk}. 
+          <div class="img_box">
+            <img src=${item.multimedia[0].url} width="100%" alt=${item.multimedia[0].caption} />
+
+            <div class="bg-white tag position-absolute top-0 shadow">
+              ${item.subsection}
             </div>
-  
-            <img src=https://static01.nyt.com/${item.multimedia[0].url} width="100%" alt="${item.headline.main}" />
           </div>
-  
+
           <div class="mt-3">
-            <h6 class="title text-dark">
-              ${item.headline.main}
-            </h6>
-  
-            <div class="text-muted small">
-              Source: ${item.byline.original}
-            </div>
-  
-            <p class="text-muted small mt-2">
-              ${item.abstract}
-            </p>
-  
-            <div class="mt-3">
-              <a href=${item.web_url} class="text-primary text-decoration-underline" target="_blank">
-                Read more
-              </a>
+            <h4>
+              ${item.title}
+            </h4>
+
+            <div class="mt-2">
+              <p class="text-muted small">
+                ${item.abstract} - ${item.byline}
+              </p>
+
+              <div class="mt-2">
+                <a href=${item.url} target="_blank" class="text-primary">
+                  Read more
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-  
-    `;
 
-    })
+      `;
 
-    articlesElement.appendChild(subElement);
+    });
 
-  })
+    currentNewsEl.appendChild(subElement);
+    
+  });
 
 }
 
