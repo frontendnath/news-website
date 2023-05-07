@@ -90,7 +90,7 @@ function showUSNews(dataFromUSNewsAPI) {
           <div>
             <div class="img_box mb-2">
               <div class="tag bg-white shadow text-dark fw-light">
-                ${item.item_type} | ${item.section}
+                ${item.section} Politics
               </div>
 
               <img src=${item.multimedia[0].url} width="100%" alt=${item.multimedia[0].caption} />
