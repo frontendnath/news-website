@@ -6,7 +6,7 @@ const apiData = {
 
   apiKey: 'xackVAOA4jtfwNEwdsEOBPex22JSKesB',
   headlineNews: 'https://api.nytimes.com/svc/news/v3/content/all/all.json',
-  apiEndpoint: 'https://api.nytimes.com/svc/topstories/v2/health.json'
+  apiEndpoint: 'https://api.nytimes.com/svc/topstories/v2/automobiles.json'
 
 }
 
@@ -50,61 +50,75 @@ function showTopHeadlines(headlineNewsData) {
   
 }
 
-const newsURL = `${apiData.apiEndpoint}?api-key=${apiData.apiKey}`;
+// getting health news
 
-async function getNewsData(newsData) {
+const healthNewsURL = `${apiData.apiEndpoint}?api-key=${apiData.apiKey}`
 
-  const res = await fetch(newsData);
+async function getHealthNews(fetchAPIData) {
+
+  const res = await fetch(fetchAPIData);
   const data = await res.json();
 
-  showNews(data);
+  showHealthNewsData(data);
 
 }
 
-getNewsData(newsURL);
+getHealthNews(healthNewsURL);
 
-function showNews(newsDataFromAPI) {
+function showHealthNewsData(collectedDataFromAPI) {
 
-  const dataExtract = [...newsDataFromAPI.results];
+  const extractedDataFromResult = [...collectedDataFromAPI.results];
 
-  console.log(dataExtract);
+  extractedDataFromResult.forEach((data) => {
 
-  dataExtract.forEach((data) => {
+    const extractFromData = [data];
 
-    const mainExtract = [data];
+    const healthNews = document.getElementById('healthNews');
 
-    const healthNewsEl = document.getElementById('healthNews');
+    const healthNewsSubElement = document.createElement('div');
 
-    const subElement = document.createElement('div');
+    healthNewsSubElement.classList.add('col-md-3', 'mt-3');
 
-    subElement.classList.add('col-md-3', 'mt-3');
+    extractFromData.forEach((item) => {
 
-    mainExtract.forEach((item) => {
-
-      subElement.innerHTML = `
+      healthNewsSubElement.innerHTML = `
       
         <div>
-          <div class="img_box mb-2">
-            <div class="tag top-0 bg-white shadow fw-light text-dark">
+          <div class="img_box">
+            <img src=${item.multimedia[0].url} width="100%" alt=${item.multimedia[0].caption} />
+
+            <div class="tag top-0 bg-white shadow">
               ${item.section}
             </div>
-
-            <img src=${item.multimedia[0].url} width="100%" alt=${item.multimedia[0].caption} />
           </div>
 
           <div class="mt-3">
-            <h6>
+            <h6 class="title text-dark">
               ${item.title}
             </h6>
+
+            <div class="text-muted small">
+              Source: ${item.byline}
+            </div>
+
+            <p class="text-muted small mt-2">
+              ${item.abstract}
+            </p>
+
+            <div class="mt-3">
+              <a href=${item.url} class="text-primary text-decoration-underline" target="_blank">
+                Read more
+              </a>
+            </div>
           </div>
         </div>
 
-      `;
+      `
 
-    });
+    })
 
-    healthNewsEl.appendChild(subElement);
+    healthNews.appendChild(healthNewsSubElement);
 
   })
-
+  
 }

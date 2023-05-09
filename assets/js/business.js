@@ -81,6 +81,8 @@ function showNews(newsDataFromAPI) {
     subElement.classList.add('col-md-3', 'mt-3');
 
     mainExtract.forEach((item) => {
+
+      console.log(item.multimedia[0].url)
       
 
       subElement.innerHTML = `
