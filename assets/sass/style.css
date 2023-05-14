@@ -26,12 +26,12 @@
 * body nav {
   overflow: hidden;
 }
-* body nav .container-fluid {
+* body nav .container {
   display: flex;
   align-items: center !important;
   height: 100%;
 }
-* body nav .container-fluid .navbar-brand {
+* body nav .container .navbar-brand {
   font-family: "Darumadrop One", cursive !important;
   font-size: 1.4rem;
   padding-bottom: 10px;
@@ -40,10 +40,7 @@
   justify-content: center;
   color: #14449c;
 }
-* body nav .container-fluid .collapse .navbar-nav {
-  gap: 1rem;
-}
-* body nav .container-fluid .collapse .navbar-nav .nav-link {
+* body nav .container .collapse .navbar-nav .nav-link {
   font-size: 0.9rem;
   padding: 0 !important;
   font-weight: 300;
@@ -51,7 +48,7 @@
   color: #FFFFFF !important;
   position: relative;
 }
-* body nav .container-fluid .collapse .navbar-nav .nav-link::after {
+* body nav .container .collapse .navbar-nav .nav-link::after {
   position: absolute;
   content: "";
   bottom: 0%;
@@ -61,45 +58,36 @@
   width: 0%;
   background-color: #0D6EFD;
 }
-* body nav .container-fluid .collapse .navbar-nav .nav-link.active {
+* body nav .container .collapse .navbar-nav .nav-link.active {
   color: #0D6EFD !important;
 }
-* body nav .container-fluid .collapse .navbar-nav .nav-link.active::after {
+* body nav .container .collapse .navbar-nav .nav-link.active::after {
   width: 100%;
 }
-* body nav .container-fluid .collapse .navbar-nav .nav-link:hover {
+* body nav .container .collapse .navbar-nav .nav-link:hover {
   color: #0D6EFD !important;
 }
-* body nav .container-fluid .collapse .navbar-nav .nav-link:hover::after {
+* body nav .container .collapse .navbar-nav .nav-link:hover::after {
   width: 100%;
 }
-* body main .row .img_box {
+* body main .container .row .col-md-6 div {
   position: relative;
 }
-* body main .row .img_box .tag {
+* body main .container .row .col-md-6 div:hover .title_box h4 {
+  text-decoration: underline;
+}
+* body main .container .row .col-md-6 div .img_box {
+  z-index: -1;
+  position: relative;
+}
+* body main .container .row .col-md-6 div .img_box .tag {
+  top: 0%;
   position: absolute;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 2px 5px;
+  margin: 20px;
+  padding: 5px 20px;
   border-radius: 5px;
-  right: 0%;
-  margin: 10px;
 }
-* body footer .brand {
-  font-family: "Darumadrop One", cursive !important;
-  font-size: 1.4rem;
-  padding-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-@media screen and (max-width: 600px) {
-  * body footer .row {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-  * body footer .row .col-md-3 {
-    width: 100% !important;
-  }
+* body main .container .row .col-md-6 #PoliticsElement .img_box {
+  height: 200px;
+  overflow: hidden;
 }/*# sourceMappingURL=style.css.map */

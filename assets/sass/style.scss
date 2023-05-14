@@ -40,7 +40,7 @@
 
       overflow: hidden;
 
-      .container-fluid {
+      .container {
 
         display: flex;
         align-items: center !important;
@@ -61,8 +61,6 @@
         .collapse {
 
           .navbar-nav {
-
-            gap: 1rem;
 
             .nav-link {
 
@@ -119,64 +117,54 @@
 
     }
 
+
     main {
+      .container{
+        .row{
+          .col-md-6 {
+            div {
+              position: relative;
 
-      .row {
+              &:hover {
 
-        .img_box {
+                .title_box {
 
-          position: relative;
+                  h4 {
+                    text-decoration: underline;
+                  }
 
+                }
 
-          .tag {
+              }
 
-            position: absolute;
-            width: fit-content;
-            padding: 2px 5px;
-            border-radius: 5px;
-            right: 0%;
-            margin: 10px;
+              .img_box {
+                z-index: -1;
+                position: relative;
 
+                .tag {
+
+                  top: 0%;
+                  position: absolute;
+                  margin: 20px;
+                  padding: 5px 20px;
+                  border-radius: 5px;
+
+                }
+              }
+            }
+
+            #PoliticsElement {
+
+              .img_box {
+                height: 200px;
+                overflow: hidden;
+              }
+
+            }
           }
-
         }
-
       }
-
     }
 
-    footer {
-
-      .brand {
-
-        font-family: 'Darumadrop One', cursive !important;
-        font-size: 1.4rem;
-        padding-bottom: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        // color: #14449c !important;
-
-      }
-
-      @media screen and (max-width: 600px) {
-        
-        .row {
-
-          display: grid !important;
-          grid-template-columns: 1fr 1fr;
-          gap: 1rem;
-
-          .col-md-3 {
-            
-            width: 100% !important;
-
-          }
-
-        }
-
-      }
-      
-    }
   }
 }
