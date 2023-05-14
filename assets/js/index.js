@@ -140,9 +140,11 @@ function showPoliticalNewsData(newsData) {
   colElementForContent.innerHTML = `
   
     <div class="mt-2">
-      <h5>
-        ${newsData.results[1].title}
-      </h5>
+      <a href=${newsData.results[1].url} class="text-decoration-none text-dark" target="_blank">
+        <h5 class="text-dark">
+          ${newsData.results[1].title}
+        </h5>
+      </a>
       
       <div class="text-muted mt-2" style="font-size: .8rem;">
         ${newsData.results[1].abstract}

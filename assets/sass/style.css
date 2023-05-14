@@ -8,6 +8,9 @@
   overflow-x: hidden;
   font-family: "Rubik", sans-serif !important;
 }
+* body a:hover h5 {
+  text-decoration: underline !important;
+}
 * body .scroll-to-top {
   position: fixed;
   bottom: 0%;
