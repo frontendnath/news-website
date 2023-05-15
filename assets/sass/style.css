@@ -8,8 +8,14 @@
   overflow-x: hidden;
   font-family: "Rubik", sans-serif !important;
 }
+* body .bg-secondary {
+  background-color: #d6d4d4 !important;
+}
 * body a:hover h5 {
   text-decoration: underline !important;
+}
+* body a:hover h6 {
+  text-decoration: underline;
 }
 * body .scroll-to-top {
   position: fixed;
@@ -76,7 +82,7 @@
 * body main .container .row .col-md-6 div {
   position: relative;
 }
-* body main .container .row .col-md-6 div:hover .title_box h4 {
+* body main .container .row .col-md-6 div:hover .title_box h2 {
   text-decoration: underline;
 }
 * body main .container .row .col-md-6 div .img_box {
@@ -93,4 +99,7 @@
 * body main .container .row .col-md-6 #PoliticsElement .img_box {
   height: 200px;
   overflow: hidden;
+}
+* body main .container .row .col-md-6 #currentNewsFeed a:hover h3 {
+  text-decoration: underline;
 }/*# sourceMappingURL=style.css.map */

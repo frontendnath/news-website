@@ -10,11 +10,23 @@
     overflow-x: hidden;
     font-family: 'Rubik', sans-serif !important;
 
+    .bg-secondary {
+
+      background-color: #d6d4d4 !important;
+
+    }
+
     a:hover {
 
       h5 {
 
         text-decoration: underline !important;
+
+      }
+
+      h6 {
+
+        text-decoration: underline;
 
       }
 
@@ -139,7 +151,7 @@
 
                 .title_box {
 
-                  h4 {
+                  h2 {
                     text-decoration: underline;
                   }
 
@@ -168,6 +180,20 @@
               .img_box {
                 height: 200px;
                 overflow: hidden;
+              }
+
+            }
+
+            #currentNewsFeed {
+
+              a:hover {
+
+                h3 {
+
+                  text-decoration: underline;
+
+                }
+
               }
 
             }
